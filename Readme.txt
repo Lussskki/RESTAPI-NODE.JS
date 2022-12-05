@@ -19,4 +19,4 @@ alter table users
     owner to postgres;
 
 
-used dependencies: Dotenv    
+used dependencies: Dotenv,Eslint    

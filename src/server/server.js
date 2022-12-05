@@ -9,7 +9,7 @@ require('../db/connection')
  const routes = require('../routes/userRoute')
  const bodyParser = require('body-parser')
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/', routes)
 
 
