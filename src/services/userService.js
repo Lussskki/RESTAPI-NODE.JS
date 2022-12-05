@@ -13,7 +13,7 @@ const getAllUsers = async ()=> {
   }
 
 //add user
-const addUser = async ({name,lastName,dob}) =>{
+const addUsers = async ({name,lastName,dob}) =>{
   if(!name || !lastName || !dob){
     return {message:'Not filled all parts'}
   }
@@ -27,4 +27,4 @@ const addUser = async ({name,lastName,dob}) =>{
 
 
   
-  module.exports ={ getAllUsers , addUser}
+  module.exports ={ getAllUsers , addUsers}
