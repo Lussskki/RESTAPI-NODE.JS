@@ -3,7 +3,7 @@ const user = require('../db/models/userModel')
 
 //users Service
 const getAllUsers = async ()=> {
-    const data = await user.findAll({
+    let data = await user.findAll({
       where: {
         deletedAt: null
       }
@@ -12,7 +12,19 @@ const getAllUsers = async ()=> {
     return data.length ? data : {message: 'User not exist'}
   }
 
+//add user
+const addUser = async ({name,lastName,dob}) =>{
+  if(!name || !lastName || !dob){
+    return {message:'Not filled all parts'}
+  }
+    user.create ({
+      name,
+      lastName,
+      dob
+    })
+    return {message:'User added succesfuly'}
+}
 
 
   
-  module.exports ={ getAllUsers}
+  module.exports ={ getAllUsers , addUser}
