@@ -1,3 +1,4 @@
+const { json } = require('body-parser')
 const user = require('../db/models/userModel')
 
 
@@ -18,11 +19,17 @@ const addUsers = async ({name,lastName,dob}) =>{
     return {message:'Not filled all parts'}
   }
     user.create ({
+      
       name,
       lastName,
       dob
     })
-    return {message:'User added succesfuly'}
+    const creatingUserLog = new user({     
+      actionType: 'CREATED',
+      dataType: json()
+    })
+    await creatingUserLog.save()
+    return {  message:'User added succesfuly'}
 }
 
 

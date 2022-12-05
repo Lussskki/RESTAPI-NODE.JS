@@ -4,6 +4,7 @@ const {Model,DataTypes} = require('sequelize')
 class User extends Model{
     static init(connection){
         super.init({
+
             name: {
                 type: DataTypes.STRING(30),
                 allowNull: false
@@ -18,7 +19,7 @@ class User extends Model{
             },
             createdAt: {
                 type: DataTypes.TIME,
-                allowNull:true
+                allowNull:false
             },
             updatedAt: {
                 type: DataTypes.TIME,

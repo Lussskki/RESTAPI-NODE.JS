@@ -8,22 +8,10 @@ const getUsers = async (req, res)=> {
 
 
 //add user(post)
-const addUsers = async (req,res)=> {
+const addUser = async (req,res)=> {
     const {name,lastName,dob} = req.body
-    const result = function() {userService.addUsers({name,lastName,dob})}
+    const result = await userService.addUsers({name,lastName,dob})
     res.json(result)
 }
 
-
-
-
-
-
-
-
-
-
-
-
-module.exports = {getUsers, addUsers
-    }
+module.exports = {getUsers, addUser}
